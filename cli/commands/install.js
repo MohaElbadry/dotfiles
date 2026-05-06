@@ -188,11 +188,11 @@ async function applyConfigs() {
   }
 
   const dirCopies = [
-    [PATHS.backup.nvim,     PATHS.configs.nvim],
-    [PATHS.backup.fish,     PATHS.configs.fish],
-    [PATHS.backup.lf,       PATHS.configs.lf],
-    [PATHS.backup.neofetch, `${PATHS.home}/.config/neofetch`],
-    [PATHS.backup.autostart, PATHS.configs.autostart],
+    [PATHS.backup.nvim,      PATHS.configs.nvim,                     false],
+    [PATHS.backup.fish,      PATHS.configs.fish,                     false],
+    [PATHS.backup.lf,        PATHS.configs.lf,                       false],
+    [PATHS.backup.neofetch,  `${PATHS.home}/.config/neofetch`,       false],
+    [PATHS.backup.autostart, PATHS.configs.autostart,                false],
   ]
 
   for (const [src, dest] of dirCopies) {

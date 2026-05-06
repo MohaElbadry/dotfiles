@@ -31,19 +31,22 @@ async function exportConfigs() {
   }
 
   const dirCopies = [
-    [PATHS.configs.nvim,      PATHS.backup.nvim],
-    [PATHS.configs.fish,      PATHS.backup.fish],
-    [PATHS.configs.kitty,     PATHS.backup.kitty],
-    [PATHS.configs.lf,        PATHS.backup.lf],
-    [PATHS.configs.neofetch,  PATHS.backup.neofetch],
-    [PATHS.configs.mpv,       PATHS.backup.mpv],
-    [PATHS.configs.autostart, PATHS.backup.autostart],
+    [PATHS.configs.nvim,      PATHS.backup.nvim,      true],   // exclude .git (LazyVim is a git repo)
+    [PATHS.configs.fish,      PATHS.backup.fish,      false],
+    [PATHS.configs.kitty,     PATHS.backup.kitty,     false],
+    [PATHS.configs.lf,        PATHS.backup.lf,        false],
+    [PATHS.configs.neofetch,  PATHS.backup.neofetch,  false],
+    [PATHS.configs.mpv,       PATHS.backup.mpv,       false],
+    [PATHS.configs.autostart, PATHS.backup.autostart, false],
   ]
 
-  for (const [src, dest] of dirCopies) {
+  for (const [src, dest, excludeGit] of dirCopies) {
     if (!existsSync(src)) { log.dim(`skip (not found): ${src}`); continue }
     mkdirSync(dest, { recursive: true })
-    const { ok } = await sh(`cp -r "${src}/." "${dest}/"`)
+    const cmd = excludeGit
+      ? `rsync -a --exclude='.git' "${src}/" "${dest}/"`
+      : `cp -r "${src}/." "${dest}/"`
+    const { ok } = await sh(cmd)
     ok ? log.success(src.replace(PATHS.home, '~')) : log.warn(`failed: ${src}`)
   }
 
