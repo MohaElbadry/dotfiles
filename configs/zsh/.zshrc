@@ -7,18 +7,20 @@ plugins=(
     zsh-syntax-highlighting
     zsh-completions
     history-substring-search
-    alias-tips
     zsh-z
-    zsh-interactive-cd
     fzf-zsh-plugin
     extract
-    autojump
     fzf
-    vscode
-    web-search
 )
 
-autoload -U compinit && compinit
+# compinit with cache — only regenerate dump once per day
+autoload -Uz compinit
+if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Load topic configs
