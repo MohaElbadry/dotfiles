@@ -1,0 +1,12 @@
+[/]
+color-scheme='prefer-dark'
+cursor-theme='Yaru'
+enable-hot-corners=true
+font-antialiasing='rgba'
+font-hinting='slight'
+font-name='SF Pro Display 11'
+gtk-theme='WhiteSur-Light'
+icon-theme='WhiteSur-light'
+monospace-font-name='Fira Code weight=450 13'
+show-battery-percentage=true
+text-scaling-factor=0.96999999999999997

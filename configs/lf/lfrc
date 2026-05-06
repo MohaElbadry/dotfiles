@@ -1,0 +1,708 @@
+# ─────────────────────────────────────────────────────
+# 🎨 Colors & Theme
+# ─────────────────────────────────────────────────────
+# vim:ft=conf
+
+# These examples require Nerd Fonts or a compatible font to be used.
+# See https://www.nerdfonts.com for more information.
+
+# Define basic file types coloring
+ln      01;36   # LINK - Bright cyan
+or      01;31   # ORPHAN - Bright red
+tw      01;34   # STICKY_OTHER_WRITABLE - Bright blue
+ow      01;34   # OTHER_WRITABLE - Bright blue
+st      01;34   # STICKY - Bright blue
+di      01;34   # DIR - Bright blue
+pi      33      # FIFO - Yellow
+so      01;35   # SOCK - Bright magenta
+bd      01;33   # BLK - Bright yellow
+cd      01;33   # CHR - Bright yellow
+su      01;32   # SETUID - Bright green
+sg      01;32   # SETGID - Bright green
+ex      01;32   # EXEC - Bright green
+fi      00      # FILE - Default color
+
+# File extensions with icons and colors (Nerd Font compatible)
+*.styl               󰘧  00;38;2;141;193;73
+*.sass               󰘧  00;38;2;245;83;133
+*.scss               󰘧  00;38;2;245;83;133
+*.htm                󰌝  00;38;2;227;76;38
+*.html               󰌝  00;38;2;227;76;38
+*.slim               󰌝  00;38;2;227;76;38
+*.haml               󰌝  00;38;2;234;234;225
+*.ejs                󰌝  00;38;2;203;203;65
+*.css                󰌜  00;38;2;86;61;124
+*.less               󰌜  00;38;2;86;61;124
+*.md                 󰍔  00;38;2;65;135;215
+*.markdown           󰍔  00;38;2;65;135;215
+*.json               󰘦  00;38;2;250;208;92
+*.js                 󰌞  00;38;2;250;208;92
+*.jsx                󰜈  00;38;2;97;175;239
+*.rb                 󰴭  00;38;2;203;53;53
+*.php                󰌟  00;38;2;160;116;196
+*.py                 󰌠  00;38;2;52;152;219
+*.pyc                󰌠  00;38;2;52;152;219
+*.coffee             󰅺  00;38;2;203;203;65
+*.mustache           󰛛  00;38;2;227;121;51
+*.hbs                󰛛  00;38;2;240;119;43
+*.conf               󰒓  00;38;2;152;165;172
+*.ini                󰒓  00;38;2;152;165;172
+*.yml                󰒓  00;38;2;149;157;165
+*.yaml               󰒓  00;38;2;149;157;165
+*.toml               󰒓  00;38;2;149;157;165
+*.jpg                󰋩  00;38;2;255;122;198
+*.jpeg               󰋩  00;38;2;255;122;198
+*.png                󰋩  00;38;2;255;122;198
+*.gif                󰋩  00;38;2;255;122;198
+*.bmp                󰋩  00;38;2;255;122;198
+*.ico                󰋩  00;38;2;255;122;198
+*.svg                󰋩  00;38;2;255;122;198
+*.cpp                󰙲  00;38;2;86;182;194
+*.c                  󰙱  00;38;2;86;182;194
+*.cs                 󰌛  00;38;2;86;182;194
+*.h                  󰙲  00;38;2;210;118;197
+*.hpp                󰙲  00;38;2;210;118;197
+*.java               󰬷  00;38;2;204;62;68
+*.sh                 󱆃  00;38;2;137;224;81
+*.bash               󱆃  00;38;2;137;224;81
+*.zsh                󱆃  00;38;2;137;224;81
+*.ps1                󰊕  00;38;2;36;114;240
+*.sql                󰆼  00;38;2;230;219;116
+*.go                 󰟓  00;38;2;86;180;233
+*.dart               󱥚  00;38;2;3;136;209
+*.scala              󰘧  00;38;2;204;62;68
+*.lua                󰢱  00;38;2;66;165;245
+*.ts                 󰛦  00;38;2;3;136;209
+*.tsx                󰜈  00;38;2;3;136;209
+*.swift              󰛥  00;38;2;240;81;51
+*.kt                 󱈙  00;38;2;139;195;74
+*.kts                󱈙  00;38;2;139;195;74
+*.asm                󰘚  00;38;2;240;198;116
+*.rs                 󱘗  00;38;2;222;165;132
+*.vue                󰡄  00;38;2;65;184;131
+
+# Document formats
+*.pdf                󰈦  00;38;2;226;75;75
+*.djvu               󰈦  00;38;2;226;75;75
+*.epub               󰈙  00;38;2;226;75;75
+*.doc                󰈬  00;38;2;25;117;210
+*.docx               󰈬  00;38;2;25;117;210
+*.odt                󰈬  00;38;2;25;117;210
+*.xls                󰈛  00;38;2;19;145;90
+*.xlsx               󰈛  00;38;2;19;145;90
+*.ods                󰈛  00;38;2;19;145;90
+*.ppt                󰈧  00;38;2;214;89;59
+*.pptx               󰈧  00;38;2;214;89;59
+*.odp                󰈧  00;38;2;214;89;59
+*.txt                󰈙  00;38;2;152;165;172
+
+# Archives
+*.zip                󰗄  00;38;2;230;156;0
+*.tar                󰗄  00;38;2;230;156;0
+*.gz                 󰗄  00;38;2;230;156;0
+*.bz2                󰗄  00;38;2;230;156;0
+*.xz                 󰗄  00;38;2;230;156;0
+*.rar                󰗄  00;38;2;230;156;0
+*.7z                 󰗄  00;38;2;230;156;0
+
+# Media files
+*.mp3                󰎈  00;38;2;249;88;155
+*.flac               󰎈  00;38;2;249;88;155
+*.wav                󰎈  00;38;2;249;88;155
+*.mp4                󰕧  00;38;2;254;143;66
+*.avi                󰕧  00;38;2;254;143;66
+*.mkv                󰕧  00;38;2;254;143;66
+*.mov                󰕧  00;38;2;254;143;66
+*.webm               󰕧  00;38;2;254;143;66
+
+# Set basic configurations
+set previewer ~/.config/lf/preview.sh
+set cleaner ~/.config/lf/cleaner.sh
+set icons true         # Enable icons (requires Nerd Font)
+set incsearch true     # Enable incremental search
+set dircounts true     # Show file counts in directories
+set info size:time     # Show file sizes and modification times
+set scrolloff 5        # Keep 5 lines above/below cursor
+set ratios 1:2:3       # Set panel size ratios
+set drawbox true       # Draw boxes around panes
+set period 1           # Periodic refresh time (in seconds)
+set hidden false       # Don't show hidden files by default
+set ignorecase true    # Case-insensitive searching
+set smartcase true     # Case-sensitive if pattern has uppercase
+set mouse true         # Enable mouse support
+
+# Icons configuration
+set icons true
+
+# Define icons for file types
+icon ln 󰌑
+icon or 󰌑
+icon tw 󰌑
+icon ow 󰌑
+icon st 󰌑
+icon di 󰉋
+icon pi 󰍛
+icon so 󰍛
+icon bd 󰍛
+icon cd 󰍛
+icon su 󰍛
+icon sg 󰍛
+icon ex 󰍛
+icon fi 󰍛
+
+# Define icons for file extensions
+icon *.styl 󰘧
+icon *.sass 󰘧
+icon *.scss 󰘧
+icon *.htm 󰌝
+icon *.html 󰌝
+icon *.slim 󰌝
+icon *.haml 󰌝
+icon *.ejs 󰌝
+icon *.css 󰌜
+icon *.less 󰌜
+icon *.md 󰍔
+icon *.markdown 󰍔
+icon *.json 󰘦
+icon *.js 󰌞
+icon *.jsx 󰜈
+icon *.rb 󰴭
+icon *.php 󰌟
+icon *.py 󰌠
+icon *.pyc 󰌠
+icon *.coffee 󰅺
+icon *.mustache 󰛛
+icon *.hbs 󰛛
+icon *.conf 󰒓
+icon *.ini 󰒓
+icon *.yml 󰒓
+icon *.yaml 󰒓
+icon *.toml 󰒓
+icon *.jpg 󰋩
+icon *.jpeg 󰋩
+icon *.png 󰋩
+icon *.gif 󰋩
+icon *.bmp 󰋩
+icon *.ico 󰋩
+icon *.svg 󰋩
+icon *.cpp 󰙲
+icon *.c 󰙱
+icon *.cs 󰌛
+icon *.h 󰙲
+icon *.hpp 󰙲
+icon *.java 󰬷
+icon *.sh 󱆃
+icon *.bash 󱆃
+icon *.zsh 󱆃
+icon *.ps1 󰊕
+icon *.sql 󰆼
+icon *.go 󰟓
+icon *.dart 󱥚
+icon *.scala 󰘧
+icon *.lua 󰢱
+icon *.ts 󰛦
+icon *.tsx 󰜈
+icon *.swift 󰛥
+icon *.kt 󱈙
+icon *.kts 󱈙
+icon *.asm 󰘚
+icon *.rs 󱘗
+icon *.vue 󰡄
+
+# Document formats
+icon *.pdf 󰈦
+icon *.djvu 󰈦
+icon *.epub 󰈙
+icon *.doc 󰈬
+icon *.docx 󰈬
+icon *.odt 󰈬
+icon *.xls 󰈛
+icon *.xlsx 󰈛
+icon *.ods 󰈛
+icon *.ppt 󰈧
+icon *.pptx 󰈧
+icon *.odp 󰈧
+icon *.txt 󰈙
+
+# Archives
+icon *.zip 󰗄
+icon *.tar 󰗄
+icon *.gz 󰗄
+icon *.bz2 󰗄
+icon *.xz 󰗄
+icon *.rar 󰗄
+icon *.7z 󰗄
+
+# Media files
+icon *.mp3 󰎈
+icon *.flac 󰎈
+icon *.wav 󰎈
+icon *.mp4 󰕧
+icon *.avi 󰕧
+icon *.mkv 󰕧
+icon *.mov 󰕧
+icon *.webm 󰕧
+
+# ─────────────────────────────────────────────────────
+# 📂 File Opening Configuration
+# ─────────────────────────────────────────────────────
+cmd open ${{
+    case "$f" in
+        # Media files
+        *.mp4|*.mkv|*.avi|*.webm|*.mov|*.flv) mpv --fs --no-border "$f" ;;
+        
+        # Images
+        *.jpg|*.jpeg|*.png|*.gif|*.bmp|*.svg) sxiv -t "$f" ;;
+        
+        # Documents
+        *.pdf|*.djvu|*.epub) zathura "$f" ;;
+        
+        # Archives
+        *.zip|*.tar|*.tar.gz|*.tgz|*.tar.bz2|*.tbz2|*.tar.xz|*.txz|*.rar|*.7z) 
+            xdg-open "$f" ;;
+        
+        # Office documents
+        *.docx|*.odt|*.doc|*.xls|*.xlsx|*.ods|*.ppt|*.pptx|*.odp) 
+            libreoffice "$f" ;;
+        
+        # Web files
+        *.html|*.htm) firefox "$f" ;;
+        
+        # Code files - open with VS Code
+        *.py|*.js|*.jsx|*.ts|*.tsx|*.c|*.cpp|*.h|*.hpp|*.java|*.go|*.rs|*.php|*.rb|*.sh|*.bash|*.css|*.scss|*.json|*.md|*.yaml|*.yml|*.toml|*.conf)
+            code "$f" ;;
+        
+        # Text files - open with VS Code or use bat for preview
+        *.txt|*.md|*.markdown|*.log)
+            if [ -n "$DISPLAY" ]; then
+                code "$f"
+            else
+                bat --style=numbers --color=always "$f"
+            fi ;;
+        
+        # Default handler
+        *) 
+            if [ -d "$f" ]; then
+                lf -remote "send $id cd \"$f\""
+            else
+                xdg-open "$f"
+            fi ;;
+    esac
+}}
+
+# ─────────────────────────────────────────────────────
+# ⌨️ Keybindings
+# ─────────────────────────────────────────────────────
+
+
+# File operations
+map <enter> open
+map <delete> delete      # Delete with delete key
+map D delete             # Delete with 'D'
+map r rename             # Rename with 'r'
+map R bulkrename         # Batch rename with 'R'
+map a push :mkdir<space> # Create directory with 'a'
+map . set hidden!        # Toggle hidden files with '.'
+map <c-r> reload         # Reload with Ctrl+r
+
+# Custom file operations
+map x extract            # Extract archives with 'x'
+map t push :touch<space> # Create new file with 't'
+map p paste              # Paste files with 'p'
+map c cut                # Cut files with 'c'
+map y copy               # Copy files with 'y'
+
+# Media controls
+map V $mpv --fs --no-border "$f"  # Play videos fullscreen
+
+# Editor shortcuts
+map e $code "$f"                  # Open file in VS Code
+map E $vim "$f"                   # Open file in Vim
+
+# Shell commands
+map w $fish                       # Open fish shell
+map W !fish                       # Open fish shell with current directory as base
+
+# Copy file paths
+map <c-c> $echo -n "$f" | xclip -selection clipboard  # Copy file path to clipboard
+
+# Bookmarks
+map gh cd ~                        # Go to home directory
+map gd cd ~/Documents              # Go to Documents
+map gD cd ~/Downloads              # Go to Downloads
+map gp cd ~/Pictures               # Go to Pictures
+map gv cd ~/Videos                 # Go to Videos
+map gc cd ~/.config                # Go to .config
+map gr cd /                        # Go to root
+
+# ─────────────────────────────────────────────────────
+# 📦 Custom Commands
+# ─────────────────────────────────────────────────────
+# Extract various archive formats
+cmd extract ${{
+    case "$f" in
+        *.tar.gz|*.tgz)     tar -xvzf "$f" ;;
+        *.tar.bz2|*.tbz2)   tar -xvjf "$f" ;;
+        *.tar.xz|*.txz)     tar -xvJf "$f" ;;
+        *.tar)              tar -xvf "$f" ;;
+        *.zip)              unzip "$f" ;;
+        *.rar)              unrar x "$f" ;;
+        *.7z)               7z x "$f" ;;
+        *)                  echo "Unsupported format" ;;
+    esac
+}}
+
+# Create a new file
+cmd touch ${{
+    touch "$@"
+    lf -remote "send $id select \"$@\""
+}}
+
+# Create a new directory
+cmd mkdir ${{
+    mkdir -p "$@"
+    lf -remote "send $id select \"$@\""
+}}
+
+# Bulk rename files using $EDITOR
+cmd bulkrename ${{
+    tmpfile=$(mktemp)
+    ls -N --quoting-style=literal | cat -n > "$tmpfile"
+    $EDITOR "$tmpfile"
+    
+    if [ $(wc -l < "$tmpfile") -ne $(ls | wc -l) ]; then
+        echo "Number of lines changed. Cancelled."
+        rm -f "$tmpfile"
+        return
+    fi
+    
+    while read -r line; do
+        num=$(echo "$line" | cut -f1)
+        name=$(echo "$line" | cut -f2-)
+        [ -n "$name" ] && [ "$name" != "$(ls -N --quoting-style=literal | sed "${num}q;d")" ] &&
+        mv "$(ls -N --quoting-style=literal | sed "${num}q;d")" "$name"
+    done < "$tmpfile"
+    
+    rm -f "$tmpfile"
+    lf -remote "send $id reload"
+}}
+
+# File information
+cmd info !{{
+    if [ -d "$f" ]; then
+        du -sh "$f"
+    else
+        file -b "$f"
+        stat "$f"
+    fi
+}}
+
+# Compress current file/directory
+cmd compress ${{
+    set -f
+    mkdir -p "$1"
+    cp -r "$fx" "$1"
+    tar -czf "$1.tar.gz" "$1"
+    rm -rf "$1"
+}}
+
+# Enhanced search
+cmd fzf_search ${{
+    res="$(find . -maxdepth 3 | fzf --reverse --header='Search in directory' | tr -d '\n')"
+    if [ -d "$res" ]; then
+        lf -remote "send $id cd \"$res\""
+    elif [ -f "$res" ]; then
+        lf -remote "send $id select \"$res\""
+    fi
+}}
+map <c-f> :fzf_search
+
+# Image preview with kitty terminal if available
+cmd image_preview ${{
+    if [ -n "$KITTY_WINDOW_ID" ]; then
+        kitty +kitten icat --clear --transfer-mode=file --place="$width"x"$height"@"$x"x"$y" "$f"
+    fi
+}}
+
+# Trash command instead of direct delete
+cmd trash ${{
+    if command -v trash-put &> /dev/null; then
+        trash-put "$fx"
+    elif command -v gio &> /dev/null; then
+        gio trash "$fx"
+    else
+        echo "No trash command found!"
+    fi
+}}
+map <delete> trash
+
+# Enhanced image and PDF preview configuration for lfrc
+
+# Update the previewer command to handle images better
+set previewer ~/.config/lf/preview.sh
+
+# Create a more robust preview script
+cmd create_preview_script ${{
+    cat > ~/.config/lf/preview.sh << 'EOF'
+#!/usr/bin/env bash
+
+# File previewer for lf file manager
+
+file="$1"
+width="$2"
+height="$3"
+x="$4"
+y="$5"
+
+handle_image() {
+    if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && command -v ueberzug >/dev/null 2>&1; then
+        # Use Ueberzug for X11
+        ueberzug layer --parser json 0< <(
+            {
+                printf '{"action": "add", "identifier": "preview", "path": "%s", "x": %d, "y": %d, "width": %d, "height": %d}\n' "$file" "$x" "$y" "$width" "$height"
+            }
+        )
+    elif [ -n "$KITTY_WINDOW_ID" ] && command -v kitty >/dev/null 2>&1; then
+        # Use Kitty's built-in image protocol
+        kitty +kitten icat --clear --transfer-mode=file --place="${width}x${height}@${x}x${y}" "$file"
+    elif command -v chafa >/dev/null 2>&1; then
+        # Use chafa for terminal image preview 
+        chafa -s "${width}x${height}" "$file"
+    elif command -v timg >/dev/null 2>&1; then
+        # Try timg as another terminal image viewer
+        timg -g "${width}x${height}" "$file"
+    else
+        # Fallback to basic file info
+        file -b "$file"
+    fi
+}
+
+handle_pdf() {
+    if command -v pdftotext >/dev/null 2>&1; then
+        # Extract and display text from PDF
+        pdftotext -l 10 -nopgbrk -q -- "$file" -
+    elif command -v pdftoppm >/dev/null 2>&1 && (command -v chafa >/dev/null 2>&1 || command -v timg >/dev/null 2>&1); then
+        # Create an image preview of the first page
+        tmp_img="/tmp/lf_pdf_preview.png"
+        pdftoppm -png -singlefile -scale-to-x 1024 -scale-to-y -1 "$file" "${tmp_img%.png}"
+        
+        if command -v chafa >/dev/null 2>&1; then
+            chafa -s "${width}x${height}" "$tmp_img"
+        elif command -v timg >/dev/null 2>&1; then
+            timg -g "${width}x${height}" "$tmp_img"
+        fi
+        rm "$tmp_img" 2>/dev/null
+    else
+        # Fallback to metadata display
+        file -b "$file"
+        echo "Install pdftotext or pdftoppm for better previews"
+    fi
+}
+
+handle_video() {
+    if command -v ffmpegthumbnailer >/dev/null 2>&1; then
+        tmp_img="/tmp/lf_video_preview.png"
+        ffmpegthumbnailer -i "$file" -o "$tmp_img" -s 0 -q 10
+        
+        if command -v chafa >/dev/null 2>&1; then
+            chafa -s "${width}x${height}" "$tmp_img"
+        elif command -v timg >/dev/null 2>&1; then
+            timg -g "${width}x${height}" "$tmp_img"
+        fi
+        rm "$tmp_img" 2>/dev/null
+    else
+        # Fallback to metadata
+        file -b "$file"
+        echo "Install ffmpegthumbnailer for video previews"
+    fi
+}
+
+handle_audio() {
+    if command -v exiftool >/dev/null 2>&1; then
+        # Show audio metadata
+        exiftool "$file" | grep -E 'Title|Artist|Album|Genre|Duration|Bit Rate' | sed 's/^/  /'
+    else
+        # Basic file info
+        file -b "$file"
+    fi
+}
+
+handle_archive() {
+    if command -v atool >/dev/null 2>&1; then
+        # List archive contents
+        atool --list -- "$file" | head -n 30
+    elif command -v bsdtar >/dev/null 2>&1; then
+        bsdtar --list --file "$file" | head -n 30
+    else
+        # Fallback
+        file -b "$file"
+        echo "Install atool or bsdtar for archive previews"
+    fi
+}
+
+handle_text() {
+    if command -v bat >/dev/null 2>&1; then
+        # Use bat for syntax highlighting
+        bat --color=always --style=numbers --line-range=:300 "$file"
+    elif command -v highlight >/dev/null 2>&1; then
+        # Alternative syntax highlighter
+        highlight -O ansi --line-numbers "$file"
+    else
+        # Fallback to plain text
+        head -n 300 "$file"
+    fi
+}
+
+# Detect file type
+case "$(file --mime-type -b "$file")" in
+    image/*)
+        handle_image
+        ;;
+    application/pdf)
+        handle_pdf
+        ;;
+    video/*)
+        handle_video
+        ;;
+    audio/*)
+        handle_audio
+        ;;
+    application/zip|application/x-7z-compressed|application/x-rar|application/x-tar|application/x-gzip|application/x-bzip2)
+        handle_archive
+        ;;
+    text/*|application/json|application/javascript|application/xml|application/x-shellscript|application/x-yaml)
+        handle_text
+        ;;
+    *)
+        file -b "$file"
+        ;;
+esac
+
+exit 0
+EOF
+    chmod +x ~/.config/lf/preview.sh
+
+    # Create cleaner script
+    cat > ~/.config/lf/cleaner.sh << 'EOF'
+#!/usr/bin/env bash
+
+# Clear image preview
+if [ -n "$KITTY_WINDOW_ID" ] && command -v kitty >/dev/null 2>&1; then
+    kitty +kitten icat --clear --transfer-mode=file
+fi
+
+if [ -n "$UEBERZUG_FIFO" ]; then
+    printf '{"action": "remove", "identifier": "preview"}\n' > "$UEBERZUG_FIFO"
+fi
+
+# Clean temporary files
+rm -f /tmp/lf_pdf_preview.png /tmp/lf_video_preview.png 2>/dev/null
+EOF
+    chmod +x ~/.config/lf/cleaner.sh
+
+    echo "Preview scripts created at ~/.config/lf/preview.sh and ~/.config/lf/cleaner.sh"
+}}
+
+# PDF improved handling in open command
+cmd open ${{
+    case "$f" in
+        # Media files
+        *.mp4|*.mkv|*.avi|*.webm|*.mov|*.flv) 
+            mpv --fs --no-border "$f" ;;    
+        
+        # Images
+        *.jpg|*.jpeg|*.png|*.gif|*.bmp|*.svg) 
+            if command -v feh >/dev/null 2>&1; then
+                feh --fullscreen "$f"
+            else
+                xdg-open "$f"
+            fi ;;
+        
+        # PDF and documents with enhanced options
+        *.pdf)
+           if command -v evince >/dev/null 2>&1; then
+                evince -f "$f" &
+            elif command -v okular >/dev/null 2>&1; then
+                okular --fullscreen "$f" &
+            elif command -v mupdf >/dev/null 2>&1; then
+                mupdf "$f" &
+            else
+                xdg-open "$f"
+            fi ;;
+        
+        # Office documents
+        *.docx|*.odt|*.doc|*.xls|*.xlsx|*.ods|*.ppt|*.pptx|*.odp) 
+            libreoffice "$f" ;;
+        
+        # Web files
+        *.html|*.htm) 
+            if command -v firefox >/dev/null 2>&1; then
+                firefox "$f"
+            else
+                xdg-open "$f"
+            fi ;;
+        
+        # Code files - open with VS Code
+        *.py|*.js|*.jsx|*.ts|*.tsx|*.c|*.cpp|*.h|*.hpp|*.java|*.go|*.rs|*.php|*.rb|*.sh|*.bash|*.css|*.scss|*.json|*.md|*.yaml|*.yml|*.toml|*.conf)
+            if command -v code >/dev/null 2>&1; then
+                code "$f"
+            else
+                xdg-open "$f"
+            fi ;;
+        
+        # Text files
+        *.txt|*.md|*.markdown|*.log)
+            if [ -n "$DISPLAY" ] && command -v code >/dev/null 2>&1; then
+                code "$f"
+            elif command -v nano >/dev/null 2>&1; then
+                nano "$f"
+            else
+                ${EDITOR:-vim} "$f"
+            fi ;;
+        
+        # Default handler
+        *) 
+            if [ -d "$f" ]; then
+                lf -remote "send $id cd \"$f\""
+            else
+                xdg-open "$f"
+            fi ;;
+    esac
+}}
+
+# Create the preview script when you first set up lf
+map <c-p> :create_preview_script
+
+
+# Terminal and search bindings
+map <c-o> ${{
+    # Open terminal in current directory
+ gnome-terminal --working-directory="$PWD" || \
+      alacritty --working-directory "$PWD" || \
+    kitty --directory "$PWD" || \
+   xterm -e "cd '$PWD' && $SHELL"
+}}
+
+# Fuzzy find bindings
+cmd fzf_jump ${{
+    res="$(find . -type f 2>/dev/null | fzf --reverse --header='Jump to location')"
+    if [ -f "$res" ]; then
+        cmd="select"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+
+# Live search within lf
+cmd fRG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+        fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+
+# Keybindings for search
+map <c-f> :fzf_jump
+map gs :fzf_search

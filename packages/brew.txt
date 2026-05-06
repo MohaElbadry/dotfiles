@@ -1,0 +1,11 @@
+binutils
+gcc
+gmp
+isl
+libmpc
+lz4
+mpfr
+supabase
+xz
+zlib
+zstd

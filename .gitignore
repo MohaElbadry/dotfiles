@@ -1,0 +1,19 @@
+# Logs
+.backup.log
+
+# Fish history and generated completions
+configs/fish/fish_history
+configs/fish/generated_completions/
+
+# nvim cache/runtime files
+configs/nvim/.cache/
+configs/nvim/lazy-lock.json
+
+# Secrets (never commit)
+configs/gh/hosts.yml
+**/.env
+**/*.key
+**/*.pem
+**/*secret*
+**/*token*
+**/*password*
