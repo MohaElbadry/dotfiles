@@ -128,3 +128,8 @@ export PATH=/home/elbadry_/Desktop/JOB-AI/oci-deployment/terraform/y:$PATH
 export PATH=/home/elbadry_/bin:$PATH
 
 [[ -e "/home/elbadry_/y/lib/python3.12/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/elbadry_/y/lib/python3.12/site-packages/oci_cli/bin/oci_autocomplete.sh"
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

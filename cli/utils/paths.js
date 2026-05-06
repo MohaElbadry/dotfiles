@@ -26,6 +26,11 @@ export const PATHS = {
     zed:          `${HOME}/.config/zed/settings.json`,
     autostart:    `${HOME}/.config/autostart`,
     omzPlugins:   `${HOME}/.oh-my-zsh/custom/plugins`,
+    zshd:         `${HOME}/.config/zsh`,
+    mise:         `${HOME}/.config/mise/config.toml`,
+    yazi:         `${HOME}/.config/yazi`,
+    atuin:        `${HOME}/.config/atuin`,
+    fontconfig:   `${HOME}/.config/fontconfig`,
   },
 
   backup: {
@@ -51,6 +56,11 @@ export const PATHS = {
     gnomeShell:   `${DOTFILES}/gnome/shell.dconf`,
     gnomeKeys:    `${DOTFILES}/gnome/keybindings.dconf`,
     gnomeEnabled: `${DOTFILES}/gnome/enabled-extensions.txt`,
+    zshd:         `${DOTFILES}/configs/zsh/zsh.d`,
+    mise:         `${DOTFILES}/configs/mise/config.toml`,
+    yazi:         `${DOTFILES}/configs/yazi`,
+    atuin:        `${DOTFILES}/configs/atuin`,
+    fontconfig:   `${DOTFILES}/configs/fontconfig`,
     pkgApt:       `${DOTFILES}/packages/apt.txt`,
     pkgSnap:      `${DOTFILES}/packages/snap.txt`,
     pkgFlatpak:   `${DOTFILES}/packages/flatpak.txt`,

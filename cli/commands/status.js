@@ -75,5 +75,16 @@ export async function status() {
     log.success('In sync with GitHub.')
   }
 
+  // ── Shell startup time ───────────────────────────────────────────────────────
+  log.step('Shell startup time')
+  const { stdout: startupMs } = await sh(
+    `{ time zsh -i -c exit; } 2>&1 | grep real | awk '{print $2}'`
+  )
+  const timeStr = startupMs.trim() || '?'
+  const ms = parseFloat(timeStr.replace('m', '').replace('s', '')) * 1000
+  if (ms < 500)       log.success(`${timeStr} (fast)`)
+  else if (ms < 1000) log.warn(`${timeStr} (a bit slow — check plugins)`)
+  else                log.error(`${timeStr} (slow — reduce plugins or lazy-load)`)
+
   log.blank()
 }

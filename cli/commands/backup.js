@@ -21,6 +21,7 @@ async function exportConfigs() {
     [PATHS.configs.gtk4,    PATHS.backup.gtk4],
     [PATHS.configs.gh,      PATHS.backup.gh],
     [PATHS.configs.zed,     PATHS.backup.zed],
+    [PATHS.configs.mise,    PATHS.backup.mise],
   ]
 
   for (const [src, dest] of copies) {
@@ -37,7 +38,10 @@ async function exportConfigs() {
     [PATHS.configs.lf,        PATHS.backup.lf,        false],
     [PATHS.configs.neofetch,  PATHS.backup.neofetch,  false],
     [PATHS.configs.mpv,       PATHS.backup.mpv,       false],
-    [PATHS.configs.autostart, PATHS.backup.autostart, false],
+    [PATHS.configs.autostart,   PATHS.backup.autostart,   false],
+    [PATHS.configs.zshd,        PATHS.backup.zshd,        false],
+    [PATHS.configs.yazi,        PATHS.backup.yazi,        false],
+    [PATHS.configs.fontconfig,  PATHS.backup.fontconfig,  false],
   ]
 
   for (const [src, dest, excludeGit] of dirCopies) {

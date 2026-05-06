@@ -1,0 +1,9 @@
+[filetype]
+rules = [
+  { mime = "image/*",     fg = "yellow" },
+  { mime = "video/*",     fg = "magenta" },
+  { mime = "audio/*",     fg = "magenta" },
+  { mime = "application/zip",    fg = "red" },
+  { mime = "application/x-tar", fg = "red" },
+  { mime = "text/*",      fg = "cyan" },
+]

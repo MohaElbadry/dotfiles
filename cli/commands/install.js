@@ -213,6 +213,86 @@ async function applyConfigs() {
   log.success('GNOME settings restored')
 }
 
+async function installAtuin() {
+  log.step('Atuin (shell history)')
+  const { ok } = await sh('which atuin || test -f ~/.atuin/bin/atuin')
+  if (ok) { log.dim('Already installed.'); return }
+  log.info('Installing atuin...')
+  await shLive(`curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh`)
+  log.success('Atuin installed — restart shell to activate.')
+}
+
+async function installMise() {
+  log.step('Mise (runtime version manager)')
+  const { ok } = await sh('which mise || test -f ~/.local/bin/mise')
+  if (!ok) {
+    log.info('Installing mise...')
+    await shLive('curl https://mise.run | sh')
+  } else {
+    log.dim('Already installed.')
+  }
+  if (existsSync(PATHS.backup.mise)) {
+    mkdirSync(`${PATHS.home}/.config/mise`, { recursive: true })
+    await sh(`cp "${PATHS.backup.mise}" "${PATHS.configs.mise}"`)
+    log.success('mise config restored — run: mise install')
+  }
+}
+
+async function installYazi() {
+  log.step('Yazi (file manager)')
+  const { ok } = await sh('which yazi || test -f ~/.local/bin/yazi')
+  if (!ok) {
+    log.info('Downloading yazi...')
+    const { stdout: ver } = await sh(
+      `curl -s https://api.github.com/repos/sxyazi/yazi/releases/latest | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'])"`
+    )
+    const tag = ver.trim()
+    await sh(`curl -sL https://github.com/sxyazi/yazi/releases/download/${tag}/yazi-x86_64-unknown-linux-gnu.zip -o /tmp/yazi.zip`)
+    await sh('unzip -q /tmp/yazi.zip -d /tmp/yazi-extract/')
+    await sh(`cp /tmp/yazi-extract/yazi-x86_64-unknown-linux-gnu/yazi ${PATHS.home}/.local/bin/yazi`)
+    await sh(`cp /tmp/yazi-extract/yazi-x86_64-unknown-linux-gnu/ya ${PATHS.home}/.local/bin/ya 2>/dev/null || true`)
+    await sh(`chmod +x ${PATHS.home}/.local/bin/yazi ${PATHS.home}/.local/bin/ya 2>/dev/null || true`)
+    log.success('Yazi installed.')
+  } else {
+    log.dim('Already installed.')
+  }
+  if (existsSync(PATHS.backup.yazi)) {
+    mkdirSync(PATHS.configs.yazi, { recursive: true })
+    await sh(`cp -r "${PATHS.backup.yazi}/." "${PATHS.configs.yazi}/"`)
+    log.success('Yazi config restored.')
+  }
+}
+
+async function installGitleaks() {
+  log.step('Gitleaks + pre-commit (secret scanning)')
+  const { ok: hasGl } = await sh('which gitleaks || test -f ~/.local/bin/gitleaks')
+  if (!hasGl) {
+    log.info('Installing gitleaks...')
+    const { stdout: ver } = await sh(
+      `curl -s https://api.github.com/repos/gitleaks/gitleaks/releases/latest | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'].lstrip('v'))"`
+    )
+    const v = ver.trim()
+    await sh(`curl -sL https://github.com/gitleaks/gitleaks/releases/download/v${v}/gitleaks_${v}_linux_x64.tar.gz -o /tmp/gitleaks.tar.gz`)
+    await sh(`tar -xzf /tmp/gitleaks.tar.gz -C ${PATHS.home}/.local/bin/ gitleaks`)
+    await sh(`chmod +x ${PATHS.home}/.local/bin/gitleaks`)
+    log.success('Gitleaks installed.')
+  } else {
+    log.dim('Gitleaks already installed.')
+  }
+  const { ok: hasPc } = await sh('which pre-commit')
+  if (!hasPc) {
+    log.info('Installing pre-commit...')
+    await sh('pipx install pre-commit')
+  }
+  const hookPath = `${PATHS.dotfiles}/.git/hooks/pre-commit`
+  if (!existsSync(hookPath)) {
+    await sh(`cd "${PATHS.dotfiles}" && pre-commit install`)
+    log.success('pre-commit hook installed in dotfiles repo.')
+  } else {
+    log.dim('pre-commit hook already installed.')
+  }
+}
+
 async function installClaudeCLI() {
   log.step('Claude Code CLI')
   const { ok } = await sh('which claude')
@@ -226,10 +306,14 @@ async function installClaudeCLI() {
 
 const STEPS = [
   { name: 'oh-my-zsh',   label: 'Oh My Zsh + custom plugins',  fn: installOhMyZsh },
-  { name: 'apt',         label: 'APT packages (335)',           fn: installAptPackages },
+  { name: 'apt',         label: 'APT packages',                 fn: installAptPackages },
   { name: 'snap',        label: 'Snap packages',                fn: installSnapPackages },
   { name: 'flatpak',     label: 'Flatpak apps',                 fn: installFlatpakApps },
   { name: 'brew',        label: 'Homebrew packages',            fn: installBrewPackages },
+  { name: 'atuin',       label: 'Atuin (shell history sync)',   fn: installAtuin },
+  { name: 'mise',        label: 'Mise (Node/Java/Go versions)', fn: installMise },
+  { name: 'yazi',        label: 'Yazi (file manager)',          fn: installYazi },
+  { name: 'gitleaks',    label: 'Gitleaks + pre-commit',        fn: installGitleaks },
   { name: 'theme',       label: 'WhiteSur GTK theme + icons',   fn: installWhiteSurTheme },
   { name: 'gnome-ext',   label: 'GNOME extensions + settings',  fn: installGnomeExtensions },
   { name: 'spicetify',   label: 'Spicetify (Spotify)',          fn: installSpicetify },
