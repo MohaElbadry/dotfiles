@@ -240,7 +240,8 @@ const STEPS = [
 export async function install() {
   banner('dots install')
 
-  const { MultiSelect } = await import('enquirer')
+  const { default: pkg } = await import('enquirer')
+  const { MultiSelect } = pkg
 
   const selected = await new MultiSelect({
     name: 'steps',

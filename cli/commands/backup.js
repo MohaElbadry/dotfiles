@@ -177,7 +177,8 @@ export async function backup({ interactive = true } = {}) {
   }
 
   // Interactive: confirm before committing
-  const { Confirm, Input } = await import('enquirer')
+  const { default: pkg } = await import('enquirer')
+  const { Confirm, Input } = pkg
 
   const confirm = await new Confirm({
     name: 'proceed',

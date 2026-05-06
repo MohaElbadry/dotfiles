@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import chalk from 'chalk'
+import enquirer from 'enquirer'
 import { backup }  from './commands/backup.js'
 import { status }  from './commands/status.js'
 import { install } from './commands/install.js'
 
+const { Select } = enquirer
 const arg = process.argv[2]
 
 // Non-interactive mode (called by cron)
@@ -12,7 +14,6 @@ if (arg === 'status')  { await status(); process.exit(0) }
 if (arg === 'install') { await install(); process.exit(0) }
 
 // Interactive main menu
-const { Select } = await import('enquirer')
 
 console.log('\n' + chalk.bold.blue('  ██████╗  ██████╗ ████████╗███████╗'))
 console.log(        chalk.bold.blue('  ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝'))
