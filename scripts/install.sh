@@ -145,6 +145,16 @@ cp "$DOTFILES_DIR/configs/neofetch/config.conf" ~/.config/neofetch/
 # Restore GNOME settings
 bash "$DOTFILES_DIR/scripts/import-gnome.sh"
 
+# ── FiraCode font (used by lf) ────────────────────────────────────────────────
+mkdir -p ~/.local/share/fonts
+FIRACODE_URL="https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip"
+TMP_FONT=$(mktemp -d)
+curl -L "$FIRACODE_URL" -o "$TMP_FONT/FiraCode.zip"
+unzip -q "$TMP_FONT/FiraCode.zip" -d "$TMP_FONT/firacode"
+cp "$TMP_FONT/firacode/ttf/"*.ttf ~/.local/share/fonts/
+fc-cache -f
+rm -rf "$TMP_FONT"
+
 # ── 10. Claude Code ───────────────────────────────────────────────────────────
 step "10/10 Installing Claude Code"
 if ! command -v claude &>/dev/null; then
