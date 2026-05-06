@@ -8,4 +8,5 @@ mpfr
 supabase
 xz
 zlib
+zlib-ng-compat
 zstd

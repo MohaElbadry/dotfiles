@@ -130,7 +130,7 @@ async function installWhiteSurTheme() {
   } else {
     log.info('Installing WhiteSur GTK theme...')
     const tmp = `/tmp/whitesur-theme-${Date.now()}`
-    await shLive(`git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git ${tmp} && bash ${tmp}/install.sh -t all -l --normal && rm -rf ${tmp}`)
+    await shLive(`git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git ${tmp} && bash ${tmp}/install.sh -t all -l && rm -rf ${tmp}`)
   }
   if (existsSync('/usr/share/icons/WhiteSur-light')) {
     log.dim('WhiteSur icons already installed.')
