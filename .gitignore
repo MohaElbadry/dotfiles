@@ -17,3 +17,5 @@ configs/gh/hosts.yml
 **/*secret*
 **/*token*
 **/*password*
+configs/lf/FiraCode.zip
+configs/lf/*.zip
