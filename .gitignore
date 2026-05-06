@@ -19,3 +19,7 @@ configs/gh/hosts.yml
 **/*password*
 configs/lf/FiraCode.zip
 configs/lf/*.zip
+
+# CLI deps (installed via npm install on setup)
+cli/node_modules/
+cli/package-lock.json

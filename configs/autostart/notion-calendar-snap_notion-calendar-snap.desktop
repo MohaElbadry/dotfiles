@@ -1,0 +1,11 @@
+[Desktop Entry]
+X-SnapInstanceName=notion-calendar-snap
+Name=Notion Calendar Snap
+X-SnapAppName=notion-calendar-snap
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/notion-calendar-snap_notion-calendar-snap.desktop /snap/bin/notion-calendar-snap %U
+Terminal=false
+Type=Application
+Icon=/snap/notion-calendar-snap/3/meta/gui/icon.png
+StartupWMClass=Notion Calendar Snap
+Comment=Notion Calnedar
+Categories=Utility;

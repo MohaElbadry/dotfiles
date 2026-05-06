@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = main
+[user]
+	main = mohammedbadry2003@gmail.com
+	name = ElBadry
+	email = mohammedbadry2003@gmail.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

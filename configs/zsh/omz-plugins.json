@@ -1,0 +1,8 @@
+{
+  "alias-tips": "https://github.com/djui/alias-tips.git",
+  "fzf-zsh-plugin": "https://github.com/unixorn/fzf-zsh-plugin.git",
+  "zsh-autosuggestions": "https://github.com/zsh-users/zsh-autosuggestions",
+  "zsh-completions": "https://github.com/zsh-users/zsh-completions",
+  "zsh-syntax-highlighting": "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+  "zsh-z": "https://github.com/agkozak/zsh-z"
+}

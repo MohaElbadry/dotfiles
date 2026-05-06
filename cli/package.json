@@ -1,0 +1,14 @@
+{
+  "name": "dots",
+  "version": "1.0.0",
+  "description": "ElBadry dotfiles CLI — backup, restore, install",
+  "type": "module",
+  "bin": {
+    "dots": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "enquirer": "^2.4.1",
+    "execa": "^8.0.1"
+  }
+}
